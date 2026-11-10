@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffe5ef">
+<title>Ek Choti Si Bhet ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:18px;display:flex;align-items:center;justify-content:center;font-family:Arial,Segoe UI,sans-serif;color:#503547;background:linear-gradient(135deg,#ffe0ec,#e9dcff,#fff0dc);overflow-x:hidden}
+.card{width:100%;max-width:440px;padding:27px 21px;background:rgba(255,255,255,.96);border-radius:25px;text-align:center;box-shadow:0 15px 50px rgba(120,70,110,.15);animation:appear .5s ease;position:relative;z-index:1}
+@keyframes appear{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.emoji{font-size:58px;margin-bottom:12px;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+h1{color:#d94c83;font-size:25px;margin:8px 0 13px}
+p{font-size:15px;line-height:1.7;margin:0 0 17px}
+.hidden{display:none}
+.buttons{display:flex;justify-content:center;align-items:center;gap:18px;min-height:58px;margin-top:20px}
+button{border:0;border-radius:30px;padding:13px 25px;font-size:16px;font-weight:700;cursor:pointer;touch-action:manipulation}
+.yes,.primary{background:#e95d91;color:white;box-shadow:0 5px 15px #ed639755}
+.yes:hover,.primary:hover{background:#d9457c;transform:translateY(-2px)}
+.no{background:#eee;color:#555}
+.primary{width:100%;margin-top:12px}
+label{display:block;text-align:left;font-weight:650;font-size:14px;margin:13px 0 6px}
+input,select,textarea{width:100%;padding:13px;border:1px solid #e6c8d8;border-radius:12px;font-size:16px;background:#fffafd;color:#493442;outline:none}
+input:focus,select:focus,textarea:focus{border-color:#e95d91;box-shadow:0 0 0 3px #e95d9120}
+.letter{background:#fff5f8;border:1px dashed #e99ab7;border-radius:15px;padding:17px;text-align:left;line-height:1.85;font-size:15px;margin:17px 0}
+.small{font-size:12px;color:#98798a;margin-top:15px}
+.heart{position:fixed;bottom:-35px;animation:floatUp linear forwards;pointer-events:none;z-index:0}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+.summary{overflow-wrap:anywhere}
+button:disabled{opacity:.65;cursor:wait}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<main class="card" id="page1">
+  <div class="emoji">🙈</div>
+  <h1>Ek Chota Sa Question!</h1>
+  <p>Heyyy! 😄<br><br>
+    Aapan almost 7-8 divasapasun boltoy...<br>
+    Tar vicharaycha hota ki...<br><br>
+    <b>Majhyasobat ekda bhetayla yeshil ka? ☕</b>
+  </p>
+  <div class="buttons">
+    <button class="yes" type="button" onclick="showPage(2)">Ho! ❤️</button>
+    <button class="no" id="noBtn" type="button" onclick="moveNo()">Nahi 🙃</button>
+  </div>
+  <div class="small">No pressure! Fakt ek friendly meetup 😄</div>
+</main>
+
+<!-- PAGE 2 -->
+<section class="card hidden" id="page2">
+  <div class="emoji">💌</div>
+  <h1>Ek Chotasa Letter!</h1>
+  <div class="letter">
+    Hey! 😄<br><br>
+    Tar finally aapan bhetaycha plan kartoy! Kahi special asa nahi,
+    fakt thoda time spend karaycha, gappa maraychya ani mast enjoy karaycha.<br><br>
+    Aapan ajun ekmekanna properly bhetlelo nahi, mhanun vatla ki
+    ekda real life madhe pan bhetuya!<br><br>
+    Ata tu sang, tula kontya divshi ani kuthe bhetayla comfortable vatel?<br><br>
+    <b>Waiting for your answer! 😊</b>
+  </div>
+  <h1 style="font-size:20px">Meetup Details 📅</h1>
+  <form id="meetForm">
+    <label for="date">1. Kontya divshi bhetuya?</label>
+    <select id="date" required>
+      <option value="">Date select kar</option>
+      <option>22 November 2026</option>
+      <option>23 November 2026</option>
+      <option>27 November 2026</option>
+      <option>28 November 2026</option>
+      <option>29 November 2026</option>
+      <option>30 November 2026</option>
+    </select>
+    <label for="time">2. Kontya time la?</label>
+    <select id="time" required>
+      <option value="">Time select kar</option>
+      <option>7:00 AM</option><option>8:00 AM</option>
+      <option>9:00 AM</option><option>10:00 AM</option>
+      <option>11:00 AM</option><option>12:00 PM</option>
+      <option>1:00 PM</option><option>2:00 PM</option>
+      <option>3:00 PM</option><option>4:00 PM</option>
+      <option>5:00 PM</option>
+    </select>
+    <label for="location">3. Kuthe bhetaycha?</label>
+    <select id="location" required>
+      <option value="">Location select kar</option>
+      <option>Kankavli</option><option>Kudal</option>
+    </select>
+    <button class="primary" type="submit">Next ➜</button>
+  </form>
+</section>
+
+<!-- PAGE 3 -->
+<section class="card hidden" id="page3">
+  <div class="emoji">🍕</div>
+  <h1>One Last Thing! 😁</h1>
+  <p>Ata thoda planning pan karuya! Tula kay avdel te sang...</p>
+  <form id="foodForm">
+    <label for="place">1. Kuthe jayla avdel?</label>
+    <input id="place" type="text" placeholder="Cafe, restaurant, beach..." maxlength="150" required>
+    <label for="food">2. Kay khayla avdel?</label>
+    <input id="food" type="text" placeholder="Pizza, burger, vadapav..." maxlength="150" required>
+    <label for="extra">3. Ajun kahi suggestions astil tar?</label>
+    <textarea id="extra" rows="3" placeholder="Anything you have in mind..." maxlength="500"></textarea>
+    <button class="primary" id="submitBtn" type="submit">Submit My Plan ❤️</button>
+    <p class="small" id="status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
+<!-- PAGE 4 -->
+<section class="card hidden" id="page4">
+  <div class="emoji">🥳</div>
+  <h1>Yayyy! Response Sent!</h1>
+  <p>Tujha response milala! Ata plan finalize karuya. ❤️</p>
+  <div class="letter summary" id="finalMessage"></div>
+  <p>Bas ata bhetaycha plan karuya!<br><b>See you soon! 😁✨</b></p>
+  <div class="small">Made with a little effort and lots of awkwardness 😂</div>
+</section>
+
+<script>
+"use strict";
+
+/* Your FormSubmit destination email */
+const MY_EMAIL = "dalviavdhut230@gmail.com";
+const meetup = {};
+
+function showPage(number) {
+  document.querySelectorAll(".card").forEach(card => card.classList.add("hidden"));
+  document.getElementById("page" + number).classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* Playful moving NO button */
+function moveNo() {
+  const button = document.getElementById("noBtn");
+  const maxX = Math.max(10, window.innerWidth - button.offsetWidth - 15);
+  const maxY = Math.max(10, window.innerHeight - button.offsetHeight - 15);
+  button.style.position = "fixed";
+  button.style.zIndex = "5";
+  button.style.left = (10 + Math.random() * Math.max(0, maxX - 10)) + "px";
+  button.style.top = (10 + Math.random() * Math.max(0, maxY - 10)) + "px";
+}
+document.getElementById("noBtn").addEventListener("mouseenter", moveNo);
+
+/* Save the meeting details and continue */
+document.getElementById("meetForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  meetup.date = document.getElementById("date").value;
+  meetup.time = document.getElementById("time").value;
+  meetup.location = document.getElementById("location").value;
+  showPage(3);
+});
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+  })[char]);
+}
+
+/* Send all answers to your email through FormSubmit */
+document.getElementById("foodForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  meetup.place = document.getElementById("place").value.trim();
+  meetup.food = document.getElementById("food").value.trim();
+  meetup.extra = document.getElementById("extra").value.trim() || "No extra suggestions";
+
+  const button = document.getElementById("submitBtn");
+  const status = document.getElementById("status");
+  button.disabled = true;
+  button.textContent = "Sending...";
+  status.textContent = "Response pathavtoy, thoda wait kar...";
+
+  const formData = {
+    _subject: "New Meetup Invitation Response",
+    _template: "table",
+    Date: meetup.date,
+    Time: meetup.time,
+    Location: meetup.location,
+    Preferred_Place: meetup.place,
+    Food_Choice: meetup.food,
+    Suggestions: meetup.extra
+  };
+
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/" + encodeURIComponent(MY_EMAIL), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+    if (!response.ok || result.success === false || result.success === "false") {
+      throw new Error(result.message || "Submission failed");
+    }
+
+    document.getElementById("finalMessage").innerHTML = `
+      📅 <b>Date:</b> ${escapeHTML(meetup.date)}<br>
+      ⏰ <b>Time:</b> ${escapeHTML(meetup.time)}<br>
+      📍 <b>Location:</b> ${escapeHTML(meetup.location)}<br>
+      ☕ <b>Place:</b> ${escapeHTML(meetup.place)}<br>
+      🍕 <b>Food:</b> ${escapeHTML(meetup.food)}<br>
+      💬 <b>Suggestions:</b> ${escapeHTML(meetup.extra)}
+    `;
+    showPage(4);
+    createHearts(25);
+  } catch (error) {
+    console.error("FormSubmit error:", error);
+    status.textContent = "Email pathavta ala nahi. Internet check karun punha try kar. FormSubmit activation pending asel tar inbox/spam check kar.";
+    button.disabled = false;
+    button.textContent = "Try Again ❤️";
+  }
+});
+
+function createHearts(amount = 1) {
+  for (let i = 0; i < amount; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = ["❤️", "💗", "💕", "✨", "🌸"][Math.floor(Math.random() * 5)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+  }
+}
+setInterval(() => createHearts(2), 1400);
+</script>
+</body>
+</html>
